@@ -1,0 +1,83 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*Ghost body*/
+body { 
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+}
+.body {
+    width: 120px;
+    height: 160px;
+    background-color: white;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+    position: relative;
+}
+.eye {
+    width: 19px;
+    height: 19px;
+    background-color:#333;
+    border-radius: 50%;
+}
+.face {
+    display: flex;
+    width: 70px;
+    justify-content: space-between;
+    position: absolute;
+    top: 40px;
+    left:50%;
+    transform: translate(-50%); /*항상 중앙에 오게끔 만들어주기 위해 설정한 것이다.*/
+    flex-wrap: wrap;
+}
+.mouse {
+    width: 33px;
+    height: 15px;
+    background-color: #333;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 18px;
+    margin-top: 13px;
+}
+/*Ghost leg*/
+.bottom {
+    display: flex;
+}
+.leg {
+    background-color: white;
+    width: 24px;
+    height: 15px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+/*2의 배수에 있는 것만 (짝수번째) 특별히 적용시키는 것이다.*/
+.leg:nth-child(2n) {
+    position: relative;
+    top: -5px;
+    border-radius: 50%;
+    background-color: black;
+}
+/*Ghost가 둥둥 떠다니게 하는 애니메이션을 사용할 것이다.*/
+.ghost {
+    animation: moveUpDown 3s infinite;
+    position: absolute;
+}
+@keyframes moveUpDown {    
+    0% {
+        margin-top: 0px;
+    }
+    50% {
+        margin-top: -50px;
+    }
+    100% {
+        margin-top: 0px;
+    }
+}
